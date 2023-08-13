@@ -20,32 +20,12 @@ export default function App() {
 
   var [bankId, setBankId] = useState("");
   var [accountNo, setAccountNo] = useState("");
-  var [temp, setTemp] = useState("");
   var [amount, setAmount] = useState("");
   var [des, setDes] = useState("");
   var [accountName, setAccountName] = useState("");
   var [state, setState] = useState(false);
   var [url, setURL] = useState("");
   //img.vietqr.io/image/<BANK_ID>-<ACCOUNT_NO>-<TEMPLATE>.png?amount=<AMOUNT>&addInfo=<DESCRIPTION>&accountName=<ACCOUNT_NAME>
-
-  const handleState = (e: any) => {
-    setState(true);
-  };
-
-  const handleURL = () => {
-    let tmp =
-      "https://img.vietqr.io/image/" +
-      bankId +
-      "-" +
-      accountNo +
-      "-compact2.png?amount=" +
-      amount +
-      "&addInfo=" +
-      des +
-      "&accountName=" +
-      accountName;
-    setURL(tmp);
-  };
 
   return (
     <div>
@@ -62,7 +42,7 @@ export default function App() {
           renderInput={(params) => (
             <TextField {...params} label="Chọn ngân hàng" />
           )}
-          onChange={(event, value: any) => {
+          onChange={(_: any, value: any) => {
             console.log(value);
             setBankId(value.code);
           }}
